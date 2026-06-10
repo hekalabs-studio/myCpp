@@ -85,7 +85,7 @@ float KONVERSION(float nilai, char var1 , char opsi, char var2 ) {
             }
                 
                 break;
-             
+            
             default:
                 break;
             }
