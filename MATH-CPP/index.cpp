@@ -5,6 +5,8 @@
 #include <thread>
 #include <chrono>
 
+void headers();
+
 void daftarLogin();
 double kalkulator();
 
@@ -16,7 +18,6 @@ char tools;
 
 // utama
 int main() {
-
     vector<string> menu = {
         "Daftar/login?",
         "Kalkulator",
@@ -27,15 +28,17 @@ int main() {
         "Credit/Version",
         "Exit"
     };
-    cout << "MATH CPP - by Novemas Heka" << endl;
-    cout << "Menu : " << endl;
-    for(int i = 0; i < menu.size(); i++ ){
-        cout << i+1 << ". " << menu[i] << endl;
-        sleep_for(milliseconds(100));
-    }
-    
+
+    headers();
+        
 
     do{
+        cout << "Menu : " << endl;
+        for(int i = 0; i < menu.size(); i++ ){
+            cout << i+1 << ". " << menu[i] << endl;
+            sleep_for(milliseconds(10));
+        }
+
         cout << "Pilih apa yang kalian cari : ";cin >> tools; cout << endl;
         switch (tools) {
         case '1' :
@@ -58,12 +61,38 @@ int main() {
         case '8' :
             break;
         default:
-            cout << "Pilihan yang anda cari tidak ada" << endl;
-            cout << "Kembali? y/n : "; cin >> tools;cout << endl;
+            tools = '?';
+            cout << "= = = Pilihan yang anda cari tidak ada = = =" << endl << endl;
+            sleep_for(seconds(2));
             break;
         }
         
-    } while(tools == 'Y' || tools == 'y');
+    } while(tools == '?');
+}
+
+void headers() {
+    vector<string> header = {
+        "= = = = = = = = = = = = = = = = ",
+        "= MATH CPP - by Novemas Heka  =",
+        "= = = = = = = = = = = = = = = = ",
+    };
+
+    for(int i = 0; i < header[0].length(); i++) {
+            
+            cout << header[0][i] << flush;
+            sleep_for(milliseconds(20));
+        }
+        cout << endl;
+        for(int i = 0; i < header[1].length();i++) {
+            cout << header[1][i] << flush;
+            sleep_for(milliseconds(20));
+        }
+        cout << endl;
+        for(int i = 0; i < header[2].length();i++) {
+            cout << header[2][i] << flush;
+            sleep_for(milliseconds(20));
+        }
+        cout << endl << endl;
 }
 
 void daftarLogin() {
